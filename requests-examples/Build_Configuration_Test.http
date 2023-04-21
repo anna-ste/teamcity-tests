@@ -1,0 +1,28 @@
+
+
+###
+GET http://admin:admin@localhost:8111/authenticationTest.html?csrf
+Accept: application/json
+
+###
+POST http://admin:admin@localhost:8111/app/rest/projects
+Content-Type: application/json
+X-TC-CSRF-Token :
+
+{
+  "parentProject": {
+    "locator": "_Root"
+  },
+  "name": "Test Project",
+  "id": "TestProjectId",
+  "copyAllAssociatedSettings": true,
+  "sourceProject": {
+    "locator": "locator"
+  }
+}
+###
+
+POST http://localhost:8111/app/rest/vcs-roots
+Content-Type: application/json
+
+{}
