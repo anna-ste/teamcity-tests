@@ -20,7 +20,7 @@
         <groupId>io.rest-assured</groupId>
         <artifactId>rest-assured</artifactId>
         <version>4.4.0</version>
-        <scope>test</scope>
+        <scope>src</scope>
 
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
@@ -35,6 +35,19 @@
         <artifactId>lombok</artifactId>
         <version>1.18.26</version>
         <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>4.4.0</version>
+        <scope>compile</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+    <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.23.1</version>
+        <scope>test</scope>
     </dependency>
 
 </dependencies>
