@@ -24,7 +24,7 @@ public class TestDataGenerator {
                         .name(random.getString())
                         .id(random.getString())
                         .project(Project.builder()
-                                .id("SpringCoreForQa")
+                                .id(random.getString())
                                 .build())
                         .properties(Properties.builder()
                                 .property(Arrays.asList(
@@ -47,7 +47,7 @@ public class TestDataGenerator {
                         .id(random.getString())
                         .name(random.getString())
                         .project(Project.builder()
-                                .id("SpringCoreForQa")
+                                .id(random.getString())
                                 .build())
                         .steps(Steps.builder()
                                 .step(Arrays.asList(

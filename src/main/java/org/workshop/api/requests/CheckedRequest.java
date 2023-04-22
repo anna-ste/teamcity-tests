@@ -46,7 +46,7 @@ public class CheckedRequest {
         var startTime = System.currentTimeMillis();
 
         while (System.currentTimeMillis() - startTime < TIMEOUT) {
-            if (getBuild(buildId).getState().equals("queued")) {
+            if (getBuild(buildId).getState().equals("finished")) {
                 break;
             }
         }
