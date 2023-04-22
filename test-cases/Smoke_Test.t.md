@@ -1,6 +1,6 @@
 # Smoke_Test
 
- * 1 Build configuration test
+* 1 Build configuration test
     * Create project
     * Create VCS
     * Create build configuration
