@@ -12,11 +12,13 @@ import org.workshop.api.generators.TestDataGenerator;
 public class BaseTest {
     public final TestDataGenerator testDataGenerator = new TestDataGenerator();
     public SoftAssertions softy;
+
     @BeforeSuite
     public void setUp() {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
         RestAssured.baseURI = "https://admin:admin@anna.teamcity.com";
     }
+
     @BeforeTest
     public void beforeTest() {
         softy = new SoftAssertions();
@@ -24,6 +26,6 @@ public class BaseTest {
 
     @AfterTest
     public void afterTest() {
-    softy.assertAll();
+        softy.assertAll();
     }
 }

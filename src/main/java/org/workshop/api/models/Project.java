@@ -15,7 +15,7 @@ public class Project {
     private Project parentProject;
     private BuildTypes buildTypes;
     private BuildTypes templates;
-    private Properties paramaters;
+    private Properties parameters;
     private VcsRoots vcsRoots;
     private ProjectFeatures projectFeatures;
     private Projects projects;

@@ -11,5 +11,5 @@ public class NewProjectDescription {
     private String id;
     private boolean copyAllAssociatedSettings;
 
-   }
+}
 

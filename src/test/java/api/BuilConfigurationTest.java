@@ -8,8 +8,6 @@ public class BuilConfigurationTest extends BaseTest {
     @Test
     public void buildConfigurationTest() {
         var testData = testDataGenerator.generate();
-        var createdProject = new CheckedRequest().createProject(testData.getNewProjectDescription());
-
-        softy.assertThat(createdProject.getId()).isEqualTo(testData.getNewProjectDescription().getId());
+        new CheckedRequest().createVcsRoot(testData.getNewVcsRoot());
     }
 }

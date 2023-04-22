@@ -3,7 +3,6 @@ package org.workshop.api.generators;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Random;
-import java.util.UUID;
 
 public class RandomData {
     private final static int STRING_LENGTH = 10;
@@ -12,9 +11,11 @@ public class RandomData {
     public String getId() {
         return "test_" + RandomStringUtils.randomAlphanumeric(STRING_LENGTH);
     }
+
     public String getString() {
         return "test_" + RandomStringUtils.randomAlphanumeric(STRING_LENGTH);
     }
+
     public boolean getBoolean() {
         return random.nextBoolean();
     }
