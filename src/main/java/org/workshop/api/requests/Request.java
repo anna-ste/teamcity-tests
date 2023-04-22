@@ -2,6 +2,7 @@ package org.workshop.api.requests;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.workshop.api.models.BuildType;
 import org.workshop.api.models.NewProjectDescription;
 import org.workshop.api.models.VcsRoot;
 import org.workshop.api.specs.Specs;
@@ -13,6 +14,7 @@ public class Request {
     private static final String PROJECT_ENDPOINT = "/app/rest/projects";
     private static final String VCSROOT_ENDPOINT = "/app/rest/vcs-roots";
     private static final String BUILD_QUEUE_ENDPOINT = "/app/rest/buildQueue";
+    private static final String BUILD_TYPE_ENDPOINT = "/app/rest/buildTypes";
     private final Specs spec = new Specs();
 
     public Response getCsrfToken() {
@@ -27,6 +29,10 @@ public class Request {
     public Response createVCS(VcsRoot vcsRoot) {
         return given().spec(spec.reqSpec()).body(vcsRoot).post(VCSROOT_ENDPOINT);
 
+    }
+
+    public Response createBuildConfiguration(BuildType buildType) {
+        return given().spec(spec.reqSpec()).body(buildType).post(BUILD_TYPE_ENDPOINT);
     }
 
 }
