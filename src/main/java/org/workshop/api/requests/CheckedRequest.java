@@ -1,13 +1,18 @@
 package org.workshop.api.requests;
 
 import org.apache.http.HttpStatus;
-import org.workshop.api.models.BuildType;
-import org.workshop.api.models.NewProjectDescription;
-import org.workshop.api.models.Project;
-import org.workshop.api.models.VcsRoot;
+import org.workshop.api.models.*;
 
 public class CheckedRequest {
     private final Request request = new Request();
+    private static final long TIMEOUT = 60_000;
+
+    public Build getBuild(String buildId) {
+        return request.getBuild(buildId).then().assertThat().assertThat().statusCode(HttpStatus.SC_OK)
+                .extract().response()
+                .as(Build.class);
+
+    }
 
     public String getCsrfToken() {
         return request.getCsrfToken().then().assertThat().statusCode(HttpStatus.SC_OK)
@@ -25,8 +30,25 @@ public class CheckedRequest {
     }
 
     public BuildType createBuildConfiguration(BuildType buildType) {
-        return request.createBuildConfiguration(buildType).then().assertThat().statusCode(HttpStatus.SC_OK)
+        return request.createBuildConfiguration(buildType)
+                .then().assertThat().statusCode(HttpStatus.SC_OK)
+                .extract().response().as(BuildType.class);
+
+    }
+
+    public BuildType runBuildConfiguration(Build build) {
+        return request.runBuildConfiguration(build)
+                .then().assertThat().statusCode(HttpStatus.SC_OK)
                 .extract().response().as(BuildType.class);
     }
 
+    public void waitUntilBuildFinished(String buildId) {
+        var startTime = System.currentTimeMillis();
+
+        while (System.currentTimeMillis() - startTime < TIMEOUT) {
+            if (getBuild(buildId).getState().equals("queued")) {
+                break;
+            }
+        }
+    }
 }

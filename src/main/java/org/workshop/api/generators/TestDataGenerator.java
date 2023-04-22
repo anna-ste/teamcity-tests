@@ -49,21 +49,6 @@ public class TestDataGenerator {
                         .project(Project.builder()
                                 .id("SpringCoreForQa")
                                 .build())
-                        .templates(BuildTypes.builder()
-                                .buildType(Arrays.asList(
-                                        BuildType.builder()
-                                                .id(random.getString())
-                                                .build()
-                                ))
-                                .build())
-                        .parameters(Properties.builder()
-                                .property(Arrays.asList(
-                                        Property.builder()
-                                                .name("myBuildParameter")
-                                                .value("myValue")
-                                                .build()
-                                ))
-                                .build())
                         .steps(Steps.builder()
                                 .step(Arrays.asList(
                                         Step.builder()
