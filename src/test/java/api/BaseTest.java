@@ -15,7 +15,7 @@ public class BaseTest {
     @BeforeSuite
     public void setUp() {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-        RestAssured.baseURI = "http://admin:admin@localhost:8111";
+        RestAssured.baseURI = "https://admin:admin@anna.teamcity.com";
     }
     @BeforeTest
     public void beforeTest() {

@@ -13,7 +13,7 @@ public class RandomData {
         return "test_" + RandomStringUtils.randomAlphanumeric(STRING_LENGTH);
     }
     public String getString() {
-        return "test_" + UUID.randomUUID();
+        return "test_" + RandomStringUtils.randomAlphanumeric(STRING_LENGTH);
     }
     public boolean getBoolean() {
         return random.nextBoolean();
